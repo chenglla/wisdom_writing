@@ -88,7 +88,33 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      arr: [1, 2, 4, 4, 3, 3, 1, 5, 3]
+    }
+  },
+  mounted () {
+    this.a(this.arr)
+  },
+  methods: {
+    a (arr) {
+      var a = {}
+      var newArr = []
+      for (var i = 0; i < arr.length; i++) {
+        // console.log(Object.keys(a), arr[i])
+        if (Object.keys(a).indexOf(arr[i].toString()) === -1) {
+          // console.log('if', arr[i], a)
+          a[arr[i]] = 1
+        } else {
+          // console.log('else', arr[i], a)
+          a[arr[i]] += 1
+        }
+      }
+      for (var c in Object.keys(a)) {
+        if (a[Object.keys(a)[c]] > 1) {
+          newArr.push(parseInt(Object.keys(a)[c]))
+        }
+      }
+      return newArr
     }
   }
 }
