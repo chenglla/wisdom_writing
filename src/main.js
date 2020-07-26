@@ -8,11 +8,13 @@ import vueTap from 'vue-js-tap'
 // import FastClick from 'fastclick'
 import axios from 'axios'
 import store from './store'
-import { Search, Popup, Popover } from 'vux'
+import { Search, Popup, Popover, Swiper, SwiperItem } from 'vux'
 
 Vue.component('popup', Popup)
 Vue.component('popover', Popover)
 Vue.component('search', Search)
+Vue.component('swiper', Swiper)
+Vue.component('swiper-item', SwiperItem)
 Vue.use(vueTap)
 Vue.use(VueRouter)
 // FastClick.attach(document.body)

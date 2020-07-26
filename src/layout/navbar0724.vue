@@ -1,15 +1,15 @@
 <template>
   <div class="navbar weui-tabbar">
     <div v-for="item in menu" v-tap="[changeMenu, item.link]" :key="item.value" :class="[{'active': item.value === curMenu}, 'weui-tabbar__item', 'tabbar-item--' + item.value]">
-      <template>
+      <template v-if="item.value !== 'special'">
         <i :class="['iconfont', item.icon, 'weui-tabbar__icon']"></i>
         <p class="weui-tabbar__label">{{item.name}}</p>
       </template>
-<!--      <template v-else>-->
-<!--        <div class="tabbar-add-btn">-->
-<!--          <i :class="['iconfont', item.icon, 'weui-tabbar__icon']"></i>-->
-<!--        </div>-->
-<!--      </template>-->
+      <template v-else>
+        <div class="tabbar-add-btn">
+          <i :class="['iconfont', item.icon, 'weui-tabbar__icon']"></i>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
       }, {
         link: 'specialExpress',
         value: 'special',
-        name: '智能测评',
+        // name: '加号',
         icon: 'icon_lu_ceping5'
       }, {
         link: 'my',
@@ -72,7 +72,7 @@ export default {
 
   .weui-tabbar__icon>i, i.weui-tabbar__icon {
     font-size: 22px;
-    color: #bcbcbc;
+    color: RGB(51,51,51);
     /*color: #000;*/
     /*opacity: 0.6;*/
     /*font-max-size: large;*/
@@ -94,7 +94,7 @@ export default {
     margin-top: 2px;
     line-height: 1.8;
     font-size: 12px;
-    color: #bcbcbc;
+    color: #6b6b6b;
     /*color: silver;*/
   }
   .tabbar-add-btn {
