@@ -211,7 +211,7 @@ export default {
   .four_info{//作文分类
     height: 150px;
     background-color: white;
-    background-image: url(../assets/img/背景.png));
+    background-image: url(../assets/img/背景.png);
     background-size: auto;
     .four_top{
       display: flex;
