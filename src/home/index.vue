@@ -23,6 +23,22 @@
           <div class="third_item">历史故事</div>
         </div>
       </div>
+      <div class="four_info">
+        <div class="four_top">
+          <i class="iconfont icon_lu_fengefuhao" style="color: rgb(102,132,252);"></i>
+          <span>作文分类</span>
+          <ul class="four_type">
+            <li v-for="(articleType,index) in articleTypes" :key="index">{{articleType}}</li>
+          </ul>
+          <div class="four_more">更多</div>
+        </div>
+        <ul class="four_list">
+          <li v-for="(articleList,index) in articleLists" :key="index">
+            <img src="../assets/img/火.png" >
+            《{{articleList.title}}》作者：{{articleList.author}}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +61,22 @@ export default {
       searchContent: '', // 搜索内容
       page: 0,
       articleList: [], // 作文列表
-      fourScroll: null
+      fourScroll: null,
+      articleTypes:["记叙文","议论文","说明文","命题作文"],
+      articleLists:[
+        {
+          title:"拒绝平庸",
+          author:"刘大鹏",
+        },
+        {
+          title:"济南的冬天",
+          author:"王菲",
+        },
+        {
+          title:"未选择的路",
+          author:"李鹏程",
+        }
+      ],
     }
   },
   filters: {
@@ -175,6 +206,41 @@ export default {
     }
     .third_item:nth-child(3) {
       background-color: rgb(36, 191, 254);
+    }
+  }
+  .four_info{//作文分类
+    height: 150px;
+    background-color: white;
+    background-image: url(../assets/img/作文分类背景.png);
+    background-size: auto;
+    .four_top{
+      display: flex;
+      .four_type li{
+        float:left;
+        margin-top: 8px;
+        margin-left: 10px;
+        font-size: 10px;
+      }
+      .four_more{
+        float: right;
+        font-size: 10px;
+        margin-top: 8px;
+      }
+    }
+    span{
+       letter-spacing: 0.1em;
+    }
+    li{
+      list-style-type:none;
+    }
+  }
+  .four_list{
+    li{
+      margin: 10px 30px;
+    }
+    li img{ // 火苗图片
+      width: 16px;
+      height: 16px;
     }
   }
   .first .content {
