@@ -128,11 +128,11 @@ import BScroll from 'better-scroll'
   }
   /*列表*/
   .collect_wrapper{
-    height: calc(100vh - 90px);
+    height: calc(100vh - 50px);
     overflow: hidden;
   }
   .collect_content{
-    
+
 
   }
   .collect_item{
