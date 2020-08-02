@@ -6,11 +6,14 @@ Vue.use(Router)
 const home = () => import('@/home/index')
 const nav = () => import('@/layout/navbar')
 const searchInfo = () => import('@/search/searchInfo')
-const my = () => import('@/my/index')
-const collectList = () => import('@/my/collectList')
-const myEvaluation = () => import('@/my/myEvaluation')
-const testResult = () => import('@/my/testResult')
-
+const my = () => import('@/my/index') // 我的
+const collectList = () => import('@/my/collectList') // 文章收藏
+const myEvaluation = () => import('@/my/myEvaluation') // 我的测评
+const testResult = () => import('@/my/testResult') // 测试结果
+const specialExpress = () => import('@/smartAssessment/index') // 智能测评
+const startTest = () => import('@/smartAssessment/startTest')// 开始测评
+const moreComposition = () => import('@/home/more/index')// 更多文章列表
+const compositionDetail = () => import('@/home/more/compositionDetail')// 作文详情
 export default new Router({
   routes: [
     {
@@ -47,7 +50,7 @@ export default new Router({
     {
       path: '/collectList',
       components: {
-        default: collectList, nav: nav
+        default: collectList
       },
       name: 'collectList',
       meta: { tab: 'collectList', title: 'collectList' }
@@ -55,7 +58,7 @@ export default new Router({
     {
       path: '/myEvaluation',
       components: {
-        default: myEvaluation, nav: nav
+        default: myEvaluation
       },
       name: 'myEvaluation',
       meta: { tab: 'myEvaluation', title: 'myEvaluation' }
@@ -63,10 +66,42 @@ export default new Router({
     {
       path: '/testResult',
       components: {
-        default: testResult, nav: nav
+        default: testResult
       },
       name: 'testResult',
       meta: { tab: 'testResult', title: 'testResult' }
-    }
+    },
+    {// 智能测评
+      path: '/specialExpress',
+      components: {
+        default: specialExpress, nav: nav
+      },
+      name: 'specialExpress',
+      meta: { tab: 'specialExpress', title: 'specialExpress' }
+    },
+    {// 开始测试
+      path: '/startTest',
+      components: {
+        default: startTest
+      },
+      name: 'startTest',
+      meta: { tab: 'startTest', title: 'startTest' }
+    },
+    {// 更多文章列表
+      path: '/moreComposition',
+      components: {
+        default: moreComposition
+      },
+      name: 'moreComposition',
+      meta: { tab: 'moreComposition', title: 'moreComposition' }
+    },
+    {// 更多文章列表
+      path: '/compositionDetail',
+      components: {
+        default: compositionDetail
+      },
+      name: 'compositionDetail',
+      meta: { tab: 'compositionDetail', title: 'compositionDetail' }
+    },
   ]
 })
