@@ -366,11 +366,18 @@ export default {
     height: 140px;
   }
   .four_info{//作文分类
+
     margin-bottom: 10px;
     padding-bottom: 10px;
     width: 100vw;
     background-image: url(../assets/img/背景.png);
     background-size: 100vw 150px;
+
+    //height: 150px;
+    //background-color: white;
+    //background-image: url(../assets/img/背景.png);
+    //background-size: auto;
+
     .four_top{
       position: relative;
       display: flex;
