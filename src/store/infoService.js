@@ -8,6 +8,7 @@ const infoService = {
     speExpreStatus: 0, // 专题快报状态
     speExpreCategory: '', // 专题快报分类
     pdfList: [], // 存放pdf名字和链接
+    leftIndex: 0 // 存放文章类型列表
   },
   mutations: {
     SET_OPENID: (state, id) => {
@@ -34,6 +35,9 @@ const infoService = {
     SET_PDFLIST: (state, list) => {
       state.pdfList.push(list)
     },
+    SET_LEFT_INDEX: (state, index) => {
+      state.leftIndex = index
+    }
   }
 }
 

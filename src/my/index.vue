@@ -11,12 +11,18 @@
         </div>
         <div class="my_h_bottom">
           <div>
-            <span class="list_title">学校</span>
-            <span class="list_content">人大附中</span>
-            <span class="list_title">姓名</span>
-            <span class="list_content">刘依依</span>
-            <span class="list_title">年级</span>
-            <span class="list_content">三年级</span>
+            <div class="my_list1">
+              <span class="list_title">学校</span>
+              <span class="list_content">人大附中</span>
+            </div>
+            <div class="my_list2">
+              <span class="list_title">姓名</span>
+              <span class="list_content">刘依依</span>
+            </div>
+            <div class="my_list3">
+              <span class="list_title">年级</span>
+              <span class="list_content">三年级</span>
+            </div>
           </div>
           <div class="my_address">
             <span class="list_title">地址</span>
@@ -73,11 +79,12 @@ export default {
   .my_wrapper{
     height: 100%;
   }
-  .my_header{
+  .my_header{ // 蓝色图片部分
     position: relative;
     color: white;
     //padding: 20px 10%;// 上下、左右
-    height: 290px;
+    //height: 290px;
+    height: 42vh; //头高度
     background-image:url(../assets/img/my.png);
     background-size: 100%;
     img{
@@ -85,12 +92,12 @@ export default {
       width: 80px;
     }
   }
-  .my_left{
+  .my_left{ // 用户头像
     position: absolute;
     top: 50px;
     left: 10%;
   }
- .my_right{
+ .my_right{ //用户名
    position: absolute;
    top: 70px;
    left: 50%;
@@ -99,24 +106,38 @@ export default {
    letter-spacing: 1px;
   }
 
-  .my_h_bottom{
+  .my_h_bottom{ //用户信息列表
     position: relative;
     width: 85%;
     position:absolute;
     bottom: 60px;
+    //top: calc(42vh - 110px);
     //text-justify:inter-word;
-    margin: 0 8%;
+    margin: 0 6%;
     //background-color: green;
     div{
       margin: 5px 0;
+      display: flex;
     }
   }
+  .my_list1{
+    flex:1;
+  }
+  .my_list2{
+    flex:1;
+  }
+  .my_list3{
+    flex:1;
+  }
   .list_title{
-    font-size: 14px;
-    margin-right: 2%;
+    font-size: 16px;
+    letter-spacing: 2px;
+    //margin-right: 2%;
   }
   .list_content{
     font-size: 10px;
+    margin-left: 8px;
+    margin-top: 4px;
   }
   .my_middle{//我的收藏和测评报告
 
