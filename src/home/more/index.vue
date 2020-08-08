@@ -17,14 +17,18 @@
       <!-- 左边类别列表 -->
       <div class="more_second_left" ref="more_second_left">
         <div class="left_content">
-          <div v-for="(item, index) in typeList" :key="index" class="more_second_left_item" @click="getEvalType(index)">{{item}}</div>
+
+          <div v-for="(item, index) in typeList" :key="index" class="more_second_left_item" @click="getEvalType(index)">
+            <div>{{item}}</div>
+          </div>
         </div>
       </div>
       <!-- 右边文章列表 -->
       <div class="more_second_right" ref="more_second_right">
         <div class="right_content">
           <div class="right_picture">智慧写作</div>
-          <div class="right_list active" v-for="(compositionList,index) in compositionLists" :key="index">
+          <div class="right_list" v-for="(compositionList,index) in compositionLists" :key="index">
+
              <div class="more_composition_item" @click="gotoOption(1)">
                 <div class="item_top">
                   <span class="item_title">{{compositionList.title}}</span>
@@ -47,7 +51,8 @@ export default {
       searchContent:'',
       moreLeftScroll: null,
       moreRightScroll: null,
-      typeList: ['记叙文', '议论文', '说明文', '命题作文', '半命作文', '抒情文', '应用文','记叙文', '议论文', '说明文', '命题作文', '半命作文', '抒情文', '应用文'],
+      //changeShow:false,
+      typeList: ['记叙文', '议论文', '说明文', '命题作文', '半命作文', '抒情文', '应用文'],
       compositionLists:[
         {
           title:"水的呼唤",
@@ -117,7 +122,7 @@ export default {
   computed: {
     leftIndex () {
       // console.log('index:', this.$store.state.singleModel.leftIndex)
-      return parseInt(this.$store.state.compositionDetail.leftIndex)
+      return parseInt(this.$store.state.leftIndex)
     }
   },
   mounted () {
@@ -146,10 +151,11 @@ export default {
       })
     },
     getEvalType (val) { // val表示左侧点击按钮的index,点击左侧的index第一个，就获取右侧的第零个div
+      //changeShow = true
       // console.log('点击了么', val, typeof val)
       this.$store.commit('SET_LEFT_INDEX', val)
       const items = document.querySelectorAll('.more_second_left_item') // 获取左侧所有按钮
-      const rights = document.querySelectorAll('.more_second_right_one') // 获取右侧所有内容
+      const rights = document.querySelectorAll('.right_list') // 获取右侧所有内容
       // console.log(rights)
       if (val === 0) { // 这里展示的是默认全部div内容
         for (let i = 0; i < items.length; i++) {
@@ -264,7 +270,20 @@ export default {
     height: calc(100% - 55px);
     overflow: hidden;
     .more_second_left {// 左侧类别列表
-      flex: 2;
+      flex: none;
+      width: 23vw;
+      .active {
+
+        background-color: white;
+        div{
+          width: 100%;
+
+          border-left: 2px solid rgb(102,133,252);
+        }
+
+        //border-radius: 5px;
+        //margin: 13px 0;
+      }
       .left_content{
         padding-bottom: 34px;
       }
@@ -273,18 +292,22 @@ export default {
         line-height: 60px;
         letter-spacing: 2px;
         font-size: 14px;
+        span{
+          text-align: center;
+          }
       }
       .active {
-        padding: 0 5px;
+        //padding: 0 5px;
         background-color: white;
-        margin: 13px;
+        //margin: 13px;
       }
     }
   }
   .more_second_right {// 右边文章列表
     background-color: white;
     padding: 0 10px;
-    flex: 7;
+    flex: auto;
+    //flex: 1;
     .active {
     }
     .right_content{
@@ -328,7 +351,7 @@ export default {
     }
     .item_content{ // 作文内容
       color: #9E9E9E;
-      width:250px;/*这个根据实际需要设置大小*/
+      width:50vw;/*这个根据实际需要设置大小*/
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
